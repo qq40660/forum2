@@ -11,5 +11,20 @@
 关于uliweb的安装，你可以访问：
 http://uliweb.cpython.org
 
+4. 配置
+cd forum2
+#vim apps/local_settings.ini
+
+增加：
+	
+[ORM]
+CONNECTION='sqlite:///database.db'
+
+#uliweb syncdb
+#uliweb dbinit uliweb.contrib.rbac
+#uliweb createsuperuser
+#uliweb runserver
+
+可以工作了。
 
 修改：智普教育
