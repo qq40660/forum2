@@ -1,6 +1,6 @@
 1. 历史由来
 这是一个独立的 forum程序,从 plugs 复制出来。
-以前的plugs程序有一些对 uliwebzone的依赖。
+以前的plugs中 forum程序对uliwebzone有点的依赖。
 
 2. 我目前应用在 forum.jeapedu.com
 
@@ -8,8 +8,21 @@
 
 3. 你需要安装 uliweb,plugs 
 
-关于uliweb的安装，你可以访问：
+'''
+    sudo aptitude install python-setuptools
+    sudo easy_install SQLAlchemy
+    sudo easy_install uliweb
+    sudo easy_install plugs
+    sudo aptitude install mysql-client -y
+    sudo aptitude install mysql-server -y
+    sudo aptitude install python-mysqldb -y
+'''
+
+更多文档，你可以访问：
 http://uliweb.cpython.org
+
+
+
 
 4. 配置
 cd forum2
@@ -27,4 +40,6 @@ CONNECTION='sqlite:///database.db'
 
 可以工作了。
 
-修改：智普教育
+5.技术支持
+
+你可以联系智普教育 
