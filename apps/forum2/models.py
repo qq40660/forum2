@@ -157,4 +157,8 @@ class ForumPost(Model):#can't edit...回复
     
     class AddForm:
         fields = ['content', 'slug', 'reply_email']
-    
+   
+class recordmp3(Model):
+        name         = Field(CHAR)
+        datetime     = Field(datetime.datetime, auto_now_add=True)
+ 

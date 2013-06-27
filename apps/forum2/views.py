@@ -7,7 +7,8 @@ from uliweb.utils.common import safe_str
 from uliweb.utils import date
 from uliweb.utils.timesince import timesince
 import uuid
-
+import time,random
+from models import recordmp3 
 #def __begin__():
 #   from uliweb import function
 #   return function('require_login')()
@@ -1055,7 +1056,32 @@ setTimeout(function(){callback(url);},100);
             return {'url_name':url_name} 
         if request.method == 'GET':
             return {'forum_id':forum_id,'slug':slug}
-    
+
+    def mp3upload(self):
+	targetmp3=""
+        if request.method == 'POST':
+                name = str(int(time.time()) + random.randint(1000,9999))
+                filename = name + ".wav"
+
+                target = os.path.join(settings.UPLOAD.TO_PATH,filename)
+
+                f = open(target,"wb")
+                f.write(request.data)
+                f.close()
+
+                filenamemp3 = name + ".mp3"
+
+                targetmp3 = os.path.join(settings.UPLOAD.TO_PATH,filenamemp3)
+
+                cmd = os.system("lame %s %s"%(target,targetmp3))
+
+                n = recordmp3()
+                n.name = targetmp3
+                n.save()
+
+        	return json({"filename":targetmp3})
+  	return {} 
+ 
     def id(self, pid):
         """
         根据pid跳转到相应的贴子

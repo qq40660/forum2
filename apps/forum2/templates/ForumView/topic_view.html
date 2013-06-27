@@ -145,6 +145,7 @@
 
 {{include "inc_xheditor_plugins.html"}}
 {{include "inc_xheditor_draw_plugins.html"}}
+{{include "inc_xheditor_mp3upload_plugins.html"}}
 {{include "inc_paginate.html"}}
 {{use "fancybox"}}
 {{use "poshytip"}}
@@ -181,11 +182,12 @@
     
     $(function(){
         $('textarea').xheditor({
-            tools:'Cut,Copy,Paste,Pastetext,|,Blocktag,Fontface,FontSize,Bold,Italic,Underline,Strikethrough,FontColor,BackColor,SelectAll,Removeformat,|,Align,List,Outdent,Indent,|,Link,Unlink,Img,Hr,Emot,Table,Code,Quote,Draw,|,About',
+            tools:'Cut,Copy,Paste,Pastetext,|,Blocktag,Fontface,FontSize,Bold,Italic,Underline,Strikethrough,FontColor,BackColor,SelectAll,Removeformat,|,Align,List,Outdent,Indent,|,Link,Unlink,Img,Hr,Emot,Table,Code,Quote,Draw,Mp3upload,|,About',
             skin:'vista',
             upLinkUrl:"!/upload_file?forum_id={{=forum.id}}&slug={{=slug}}",
             upImgUrl:"!/upload_image?forum_id={{=forum.id}}&slug={{=slug}}",
-            plugins:$.extend(plugins, draw_plugins)
+            plugins:$.extend(plugins, draw_plugins),
+            plugins:$.extend(plugins, mp3upload_plugins),
         });
         //初始化SyntaxHighlighter
         //SyntaxHighlighter.defaults['highlight'] = [5, 10, 15];
