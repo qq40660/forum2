@@ -40,6 +40,11 @@ CONNECTION='sqlite:///database.db'
 
 可以工作了。
 
-5.技术支持
+5. 录音支持
+你需要在服务器安装lame 转换mp3
+修改 mp3upload.html 修改 服务器地址
+http://yourdomain.com/....
+
+.技术支持
 
 你可以联系智普教育 

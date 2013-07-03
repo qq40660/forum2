@@ -1061,19 +1061,14 @@ setTimeout(function(){callback(url);},100);
 	targetmp3=""
         if request.method == 'POST':
                 name = str(int(time.time()) + random.randint(1000,9999))
-                filename = name + ".wav"
+                filename = name + ".mp3"
 
-                target = os.path.join(settings.UPLOAD.TO_PATH,filename)
+                targetmp3 = os.path.join(settings.UPLOAD.TO_PATH,filename)
 
-                f = open(target,"wb")
+                f = open(targetmp3,"wb")
                 f.write(request.data)
                 f.close()
 
-                filenamemp3 = name + ".mp3"
-
-                targetmp3 = os.path.join(settings.UPLOAD.TO_PATH,filenamemp3)
-
-                cmd = os.system("lame %s %s"%(target,targetmp3))
 
                 n = recordmp3()
                 n.name = targetmp3
